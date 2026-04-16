@@ -277,7 +277,7 @@ fastapi_app = FastAPI(lifespan=lifespan)
     min_containers=0,
     region="uk-london-1"
     )
-@modal.concurrent(processes=10)
+@modal.concurrent(inputs=10)
 @modal.asgi_app()
 def web_server():
     SUB_PATH = os.environ.get('SUB_PATH') or 'sub'
