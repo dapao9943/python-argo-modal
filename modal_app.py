@@ -275,6 +275,7 @@ fastapi_app = FastAPI(lifespan=lifespan)
     secrets=[app_secrets],
     timeout=86400,
     keep_warm=0,
+    allow_concurrent_inputs=10,
     region="uk-london-1"
     )
 @modal.asgi_app()
