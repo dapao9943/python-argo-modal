@@ -275,7 +275,7 @@ fastapi_app = FastAPI(lifespan=lifespan)
     secrets=[app_secrets],
     timeout=86400,
     min_containers=0,
-    region="asia-northeast1"
+    region="uk-london-1"
 )
 @modal.asgi_app()
 def web_server():
