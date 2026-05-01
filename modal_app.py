@@ -274,10 +274,9 @@ fastapi_app = FastAPI(lifespan=lifespan)
 @app.function(
     secrets=[app_secrets],
     timeout=86400,
-    min_containers=0,
-    region="uk-london-1"
-    )
-@modal.concurrent(inputs=10)
+    keep_warm=1,
+    region="ap-northeast-1"
+)
 @modal.asgi_app()
 def web_server():
     SUB_PATH = os.environ.get('SUB_PATH') or 'sub'
@@ -298,7 +297,3 @@ def web_server():
             return Response(content=f"读取订阅时发生错误: {e}", status_code=500, media_type="text/plain; charset=utf-8")
     
     return fastapi_app
-
-
-
-
